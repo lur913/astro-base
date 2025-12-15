@@ -1,6 +1,7 @@
 ---
 import Counter from '@/components/Counter';
 import Greet from '@/components/Greet';
+import { Button } from '@/components/ui/button';
 import '@/styles/global.css';
 ---
 
@@ -12,8 +13,9 @@ import '@/styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1 class="text-2xl text-green-600 underline">Astro</h1>
+	<body class="p-8 space-y-8">
+		<h1 class="text-4xl font-bold text-center mb-8">Astro + Shadcn/ui Button 组件演示</h1>
+
 		<div>
 			<h2>验证集成 react</h2>
 			<Counter client:load message="Hello from Counter Component!" initial={10} />
@@ -21,5 +23,42 @@ import '@/styles/global.css';
 			<!-- 没有交互的组件 client:* 客户端指令来激活 js -->
 			<Greet age={16} />
 		</div>
+
+		<div class="space-y-6">
+			<h2 class="text-2xl font-semibold">Button Variant 变体</h2>
+			<div class="flex flex-wrap gap-4">
+				<Button client:load>Default</Button>
+				<Button variant="destructive" client:load>Destructive</Button>
+				<Button variant="outline" client:load>Outline</Button>
+				<Button variant="secondary" client:load>Secondary</Button>
+				<Button variant="ghost" client:load>Ghost</Button>
+				<Button variant="link" client:load>Link</Button>
+			</div>
+		</div>
+
+		<div class="space-y-6">
+			<h2 class="text-2xl font-semibold">Button Size 变体</h2>
+			<div class="flex flex-wrap items-center gap-4">
+				<Button size="sm" client:load>Small</Button>
+				<Button size="default" client:load>Default</Button>
+				<Button size="lg" client:load>Large</Button>
+				<Button size="icon" client:load>🚀</Button>
+				<Button size="icon-sm" client:load>⭐</Button>
+				<Button size="icon-lg" client:load>💎</Button>
+			</div>
+		</div>
+
+		<div class="space-y-6">
+			<h2 class="text-2xl font-semibold">组合变体示例</h2>
+			<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+				<Button variant="default" size="sm" client:load>Default Small</Button>
+				<Button variant="destructive" size="lg" client:load>Destructive Large</Button>
+				<Button variant="outline" size="default" client:load>Outline Default</Button>
+				<Button variant="secondary" size="sm" client:load>Secondary Small</Button>
+				<Button variant="ghost" size="lg" client:load>Ghost Large</Button>
+				<Button variant="link" size="default" client:load>Link Default</Button>
+			</div>
+		</div>
+		
 	</body>
 </html>
