@@ -1,4 +1,6 @@
 ---
+import Counter from '@/components/Counter';
+import Greet from '@/components/Greet';
 import '@/styles/global.css';
 ---
 
@@ -12,5 +14,12 @@ import '@/styles/global.css';
 	</head>
 	<body>
 		<h1 class="text-2xl text-green-600 underline">Astro</h1>
+		<div>
+			<h2>验证集成 react</h2>
+			<Counter client:load message="Hello from Counter Component!" initial={10} />
+			<h2>验证 react 静态组件</h2>
+			<!-- 没有交互的组件 client:* 客户端指令来激活 js -->
+			<Greet age={16} />
+		</div>
 	</body>
 </html>
